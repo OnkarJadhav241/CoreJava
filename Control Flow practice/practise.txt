@@ -1,0 +1,367 @@
+Write a program that checks if a person’s age is greater than 18, then print "Adult"
+
+class Age{
+ 	
+ public static void main(String[] args){
+      int age = 21;
+	if(age >=  18){
+	     System.out.println(" you are an Adult.....!");
+	}else{
+             System.out.println(" you are an not Adult.....!");
+	}
+
+    }
+}
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------
+Write a program to check whether a number is divisible by 10.
+
+class NumberDivisibleByTen{
+ 	
+ public static void main(String[] args){
+      int number = 100;
+	if(number % 10 == 0){
+	     System.out.println("The Number"+ number +" is Divisible By 10");
+	}else{
+             System.out.println("The Number"+ number +" is Divisible By 10");
+	}
+
+    }
+}
+
+
+--------------------------------------------------------------------------------------------------------
+
+Write a program to check whether a temperature is above 30°C, then print "Hot Day".
+
+class Temperature{
+ 	
+ public static void main(String[] args){
+      int temperturedegree = 35;
+	if(temperaturedegree >=30){
+	     System.out.println("Hot Day......!");
+	}else{
+             System.out.println("Not a Hot Day...!");
+	}
+
+    }
+}
+----------------------------------------------------------------------------------------------------------------
+
+Write a program to check whether a number is even or odd.
+
+class EvenOrOdd {
+ 	
+ public static void main(String[] args){
+      int number = 440;
+	if(number % 2 == 0){
+	     System.out.println("The number" + number +" is Even Number");
+	}else{
+             System.out.println("The number" + number +" is Odd Number");
+	}
+
+    }
+}
+
+---------------------------------------------------------------------------------------------------------------------
+
+Write a program to check whether a given year is leap year or not.
+
+class LeapYear {
+ 	
+ public static void main(String[] args){
+      int year = 2004 ;
+	if(year % 4 ==0 && year % 100 != 0 || year % 400 ==0){
+	     System.out.println("The Year "+ year "is a leap Year");
+	}else{
+             System.out.println("The Year "+ year "is not a leap Year");
+	}
+
+    }
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+Write a program to check whether a number is positive or negative.
+
+class PositiveOrNegativeNumber {
+ 	
+ public static void main(String[] args){
+      int number = 85;
+	if(number > 0){
+	     System.out.println("The number is positive");
+	}else{
+             System.out.println("The number is negative ");
+	}
+
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+Write a program to find grade of a student based  on marks:
+90–100 → Grade A
+75–89 → Grade B
+50–74 → Grade C
+35–49 → Grade D
+Below 35 → Fail
+
+class GradeSystem {
+ 	
+ public static void main(String[] args){
+      int marks = 84;
+	if(marks <= 100 && marks >=90){
+	     System.out.println("Grade A");
+	}else if(marks <= 89 && marks >=75){
+	     System.out.println("Grade B");
+	}else if(marks <= 74 && marks >=50){
+	     System.out.println("Grade C");
+	}else if(marks <= 49 && marks >=35){
+	     System.out.println("Grade D");
+	}else if(marks > 135 && marks >=0){
+	     System.out.println("Fail.......!");
+	}else{
+             System.out.println("Invalid Inputs.....!");
+	}
+
+    }
+}
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+Write a program to print the day of the week based on day number (1–7).
+
+class Week {
+ 	
+ public static void main(String[] args){
+      int number = 2 ;
+	if(number ==1){
+	     System.out.println("Sunday");
+	}else if(number ==2){
+	     System.out.println("Monday");
+	}else if(number ==3){
+	     System.out.println("Tuesday");
+	}else if(number ==4){
+	     System.out.println("Wednesday");
+	}else if(number ==5){
+	     System.out.println("Thrusday");
+	}else if(number ==6){
+	     System.out.println("friday");
+	}else if(number ==7){
+	     System.out.println("Saturday");
+	}else{
+             System.out.println("Invalid Inputs .....!");
+	}
+
+    }
+}
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Write a program to check the type of triangle (Equilateral, Isosceles, or Scalene).
+
+public class TypesOfTriangle {
+
+	public static void main(String[] args) {
+		float side1 = 4.5f, side2 = 3.5f, side3 = 3.5f;
+		int angle1 = 45, angle2 = 45, angle3 = 90;
+		if (angle1 + angle2 + angle3 == 180) {
+			if (side1 == side2 && side2 == side3 && side3 == side1) {
+				if (angle1 == 60 && angle2 == 60 && angle3 == 60) {
+					System.out.println("Equilateral triangle");
+				}else {
+					System.out.println("It is a Triangle");
+				}
+			} else if ((side1 == side2 && side1 != side3 && side2 != side3)
+					|| (side2 == side3 && side2 != side1 && side3 != side1)
+					|| (side1 == side3 && side1 != side2 && side3 != side2)) {
+				if ((angle1 == angle2 && angle1 != angle3 && angle2 != angle3)
+						|| (angle2 == angle3 && angle2 != angle1 && angle3 != angle1)
+						|| (angle3 == angle1 && angle3 != angle2 && angle3 != angle2)) {
+					System.out.println("Isosceles triangle");
+				}else {
+					System.out.println("It is a Triangle");
+				}
+			} else if (side1 != side2 && side2 != side3 && side3 != side1) {
+				if (angle1 != angle2 && angle2 != angle3 && angle3 != angle1) {
+					System.out.println("Scalene triangle");
+				}
+
+			}
+
+		} else {
+			System.out.println("The Given Angles cannot form a Triangle");
+		}
+	}
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------
+Write a program to print a message based on age group:
+
+0–12 → Child
+13–19 → Teenager
+20–59 → Adult
+60+ → Senior Citizen
+
+ class AgeGroup {
+       public static void main(String[] args) {
+	 int age =101;
+	  if(age>=0 && age<=12) {
+		System.out.println("Child");			
+	  }else if(age>=13 && age<=19) {
+		System.out.println("Teenager");			
+	  }else if(age>=20 && age<=59) {
+		System.out.println("Adult");			
+	  }else if( age>=60) {
+		System.out.println("Senior Citizen");			
+	  }else {
+		System.out.println("Invalid Inputs....!");
+	}
+     }
+}
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+Write a program to classify a temperature as Hot, Warm, Cool, or Cold.
+
+hot  > 25 
+warm 20 -24
+cool 10 -19
+cold <10
+
+class Temperature {
+ 	
+ public static void main(String[] args){
+      int degree = 2 ;
+	if(degree >= 25){
+	     System.out.println("HOT");
+	}else if(degree >=20 && degree <= 24){
+	     System.out.println("WARM");
+	}else if(degree >=10 && degree <= 19){
+	     System.out.println("COOL");
+	}else if(degree <= 10){
+	     System.out.println("COLD");
+	}else {
+	     System.out.println("Invaild Inputs...!");
+	}
+    }
+}
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+Write a program to check whether a number is positive, negative, or zero.
+
+ class PositiveAndNegativeNumber {
+       public static void main(String[] args) {
+	  int num = 4;
+          if (num > 0) {
+		System.out.println(num + " is the Positive Number");
+	   } else if (num < 0) {
+		System.out.println(num + " is the Negative Number");
+           } else{
+		System.out.println("The Given Number is zero");
+	   }
+     }
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------
+Write a program to check if a person is eligible to vote, and if eligible, check if they can contest in elections (age ≥ 25).
+
+ class VotingAge {
+       public static void main(String[] args) {
+            int age = 21;
+	    if (age >= 18) {
+		System.out.println("You are eligible for voting");
+                if(age >= 25){
+		     System.out.println("You are eligible to contest in elections");
+                }else{
+		     System.out.println("You are not eligible to contest in elections");
+                }
+	    } else {
+		System.out.println("You are not eligible for voting");
+	    }	
+      }
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------
+Write a program to check if a year is leap year, and if leap, check if it’s a century year.
+
+class LeapYear {	
+ public static void main(String[] args){
+      int year = 2004 ;
+	if(year % 4 ==0 && year % 100 != 0 || year % 400 ==0){
+	     System.out.println("The Year "+ year " is a leap Year");
+	     if(year % 100 == 0){
+		System.out.println("The Year "+ year " is a century Year");
+	     }else{
+		System.out.println("The Year "+ year " is not a century Year");
+             }   
+	}else{
+             System.out.println("The Year "+ year " is not a leap Year");
+	}
+
+    }
+}
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+Write a program to check whether a number is even, and if even, check whether it’s greater than 50.
+
+ class EvenOrOdd {
+       public static void main(String[] args) {
+	int number = 12;
+	if (number % 2 == 0) {
+	     System.out.println(number + " is Even Number");
+                                if(number>50){
+		System.out.println(number + " is  is Greater than 50");
+             }else{
+		System.out.println(number + " is  is not Greater than 50");
+	     }
+	} else {
+	     System.out.println(number + " is Odd Number");
+	}
+         }
+
+}
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
