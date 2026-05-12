@@ -1,0 +1,254 @@
+
+mysql> USE javabatch1320;
+Database changed
+mysql>  CREATE TABLE employee(id  int primary key, name varchar(255), profile varchar(100), email varchar(50),salary decimal(10,2),age int , experience int);
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> desc employee;
++------------+---------------+------+-----+---------+-------+
+| Field      | Type          | Null | Key | Default | Extra |
++------------+---------------+------+-----+---------+-------+
+| id         | int           | NO   | PRI | NULL    |       |
+| name       | varchar(255)  | YES  |     | NULL    |       |
+| profile    | varchar(100)  | YES  |     | NULL    |       |
+| email      | varchar(50)   | YES  |     | NULL    |       |
+| salary     | decimal(10,2) | YES  |     | NULL    |       |
+| age        | int           | YES  |     | NULL    |       |
+| experience | int           | YES  |     | NULL    |       |
++------------+---------------+------+-----+---------+-------+
+7 rows in set (0.01 sec)
+
+mysql> Insert into employee(id, name, profile,email, salary, age, experience)values(1,’rani’,’dev’,’rani@gmail.com’,11000,43,27),values(2,’raj’,’tes,’raj@gmail.com’,21000,33,17),values(3,’radha’,’test’,’radha@gmail.com’,26000,38,21),values(4,’raj’,’dev’,’raj12@gmail.com’,51000,32,12), values(5,’john’,’dev’,’john@gmail.com’,51000,39,27);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '@gmail.com’,11000,43,27),values(2,’raj’,’tes,’raj@gmail.com’,21000,3' at line 1
+mysql> INSERT INTO employee (id, name, profile, email, salary, age, experience) VALUES (1, 'rani', 'dev', 'rani@gmail.com', 11000, 43, 27), (2, 'raj', 'test', 'raj@gmail.com', 21000, 33, 17), (3, 'radha', 'test', 'radha@gmail.com', 26000, 38, 21), (4, 'raj', 'dev', 'raj12@gmail.com', 51000, 32, 12), (5, 'john', 'dev', 'john@gmail.com', 51000, 39, 27);
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM EMPLOYEE;
++----+-------+---------+-----------------+----------+------+------------+
+| id | name  | profile | email           | salary   | age  | experience |
++----+-------+---------+-----------------+----------+------+------------+
+|  1 | rani  | dev     | rani@gmail.com  | 11000.00 |   43 |         27 |
+|  2 | raj   | test    | raj@gmail.com   | 21000.00 |   33 |         17 |
+|  3 | radha | test    | radha@gmail.com | 26000.00 |   38 |         21 |
+|  4 | raj   | dev     | raj12@gmail.com | 51000.00 |   32 |         12 |
+|  5 | john  | dev     | john@gmail.com  | 51000.00 |   39 |         27 |
++----+-------+---------+-----------------+----------+------+------------+
+5 rows in set (0.00 sec)
+
+mysql> ALTER TABLE EMPLOYEE ADD branch_location AFTER experience;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AFTER experience' at line 1
+mysql> ALTER TABLE EMPLOYEE ADD branch_location VARCHAR (100);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM EMPLOYEE;
++----+-------+---------+-----------------+----------+------+------------+-----------------+
+| id | name  | profile | email           | salary   | age  | experience | branch_location |
++----+-------+---------+-----------------+----------+------+------------+-----------------+
+|  1 | rani  | dev     | rani@gmail.com  | 11000.00 |   43 |         27 | NULL            |
+|  2 | raj   | test    | raj@gmail.com   | 21000.00 |   33 |         17 | NULL            |
+|  3 | radha | test    | radha@gmail.com | 26000.00 |   38 |         21 | NULL            |
+|  4 | raj   | dev     | raj12@gmail.com | 51000.00 |   32 |         12 | NULL            |
+|  5 | john  | dev     | john@gmail.com  | 51000.00 |   39 |         27 | NULL            |
++----+-------+---------+-----------------+----------+------+------------+-----------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT SUM(SALARY) AS TOTAL_SALARY_EXPENSES FROM EMPLOYEE;
++-----------------------+
+| TOTAL_SALARY_EXPENSES |
++-----------------------+
+|             160000.00 |
++-----------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT MAX(SALARY) AS MAX_SALARY FROM EMPLOYEE WHERE PROFILE ='TEST';
++------------+
+| MAX_SALARY |
++------------+
+|   26000.00 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT AVG(EXPERIENCE)  FROM EMPLOYEE;
++-----------------+
+| AVG(EXPERIENCE) |
++-----------------+
+|         20.8000 |
++-----------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT MAX(SALARY) AS HIGHEST_PAID FROM EMPLOYEE;
++--------------+
+| HIGHEST_PAID |
++--------------+
+|     51000.00 |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT NAME FROM EMPOLYEE WHERE SALARY = MAX
+    -> ^C
+mysql> SELECT NAME FROM EMPOLYEE WHERE SALARY = MAX(SALARY);
+ERROR 1146 (42S02): Table 'javabatch1320.empolyee' doesn't exist
+mysql> USE JAVABATCH1320;
+Database changed
+mysql> SELECT NAME FROM EMPOLYEE WHERE SALARY = MAX(SALARY);
+ERROR 1146 (42S02): Table 'javabatch1320.empolyee' doesn't exist
+mysql> USE EMPLOYEE;
+ERROR 1049 (42000): Unknown database 'employee'
+mysql> USE JAVABATCH1320;
+Database changed
+mysql> SELECT * FROM EMPLOYEE;
++----+-------+---------+-----------------+----------+------+------------+-----------------+
+| id | name  | profile | email           | salary   | age  | experience | branch_location |
++----+-------+---------+-----------------+----------+------+------------+-----------------+
+|  1 | rani  | dev     | rani@gmail.com  | 11000.00 |   43 |         27 | NULL            |
+|  2 | raj   | test    | raj@gmail.com   | 21000.00 |   33 |         17 | NULL            |
+|  3 | radha | test    | radha@gmail.com | 26000.00 |   38 |         21 | NULL            |
+|  4 | raj   | dev     | raj12@gmail.com | 51000.00 |   32 |         12 | NULL            |
+|  5 | john  | dev     | john@gmail.com  | 51000.00 |   39 |         27 | NULL            |
++----+-------+---------+-----------------+----------+------+------------+-----------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT NAME FROM EMPOLYEE WHERE SALARY = (SELECT MAX(SALARY)FROM EMPLOYEE);
+ERROR 1146 (42S02): Table 'javabatch1320.empolyee' doesn't exist
+mysql> SELECT NAME FROM EMPLOYEE WHERE SALARY = (SELECT MAX(SALARY)FROM EMPLOYEE);
++------+
+| NAME |
++------+
+| raj  |
+| john |
++------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT NAME AND EXPERIENCE FROM EMPLOYEE WHERE SALARY =MIN(SALARY);
+ERROR 1111 (HY000): Invalid use of group function
+mysql> SELECT NAME AND EXPERIENCE FROM EMPLOYEE WHERE SALARY =(SELECT MIN(SALARY) FROM EMPLOYEE);
++---------------------+
+| NAME AND EXPERIENCE |
++---------------------+
+|                   0 |
++---------------------+
+1 row in set (0.01 sec)
+
+mysql> SELECT NAME, EXPERIENCE FROM EMPLOYEE WHERE SALARY =(SELECT MIN(SALARY) FROM EMPLOYEE);
++------+------------+
+| NAME | EXPERIENCE |
++------+------------+
+| rani |         27 |
++------+------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT COUNT() AS EMPLOYEE_COUNT FROM EMPLOYEE;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AS EMPLOYEE_COUNT FROM EMPLOYEE' at line 1
+mysql> SELECT COUNT(ID) AS EMPLOYEE_COUNT FROM EMPLOYEE;
++----------------+
+| EMPLOYEE_COUNT |
++----------------+
+|              5 |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT COUNT(*) AS EMPLOYEE_COUNT FROM EMPLOYEE;
++----------------+
+| EMPLOYEE_COUNT |
++----------------+
+|              5 |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT NAME FROM EMPLOYEE WHERE PROFILE='TEST' AND SALARY>25000;
++-------+
+| NAME  |
++-------+
+| radha |
++-------+
+1 row in set (0.00 sec)
+
+mysql> UPDATE EMPLOYEE SET PROFILE='support' WHERE NAME ='RADHA';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM EMPLOYEE;
++----+-------+---------+-----------------+----------+------+------------+-----------------+
+| id | name  | profile | email           | salary   | age  | experience | branch_location |
++----+-------+---------+-----------------+----------+------+------------+-----------------+
+|  1 | rani  | dev     | rani@gmail.com  | 11000.00 |   43 |         27 | NULL            |
+|  2 | raj   | test    | raj@gmail.com   | 21000.00 |   33 |         17 | NULL            |
+|  3 | radha | support | radha@gmail.com | 26000.00 |   38 |         21 | NULL            |
+|  4 | raj   | dev     | raj12@gmail.com | 51000.00 |   32 |         12 | NULL            |
+|  5 | john  | dev     | john@gmail.com  | 51000.00 |   39 |         27 | NULL            |
++----+-------+---------+-----------------+----------+------+------------+-----------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT MAX(SALARY) AS SECOND_HIGEST_SALARY WHERE SALARY >(SELECT MAX(SALARY)FROM EMPLOYEE);
+ERROR 1054 (42S22): Unknown column 'SALARY' in 'field list'
+mysql> SELECT MAX(salary) AS SECOND_HIGEST_SALARY WHERE salary >(SELECT MAX(salary )FROM EMPLOYEE);
+ERROR 1054 (42S22): Unknown column 'salary' in 'field list'
+mysql> SELECT MAX(salary) AS SECOND_HIGEST_SALARY FROM EMPLOYEE  WHERE salary >(SELECT MAX(salary )FROM EMPLOYEE);
++----------------------+
+| SECOND_HIGEST_SALARY |
++----------------------+
+|                 NULL |
++----------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT MAX(salary) AS SECOND_HIGEST_SALARY FROM EMPLOYEE  WHERE salary <(SELECT MAX(salary )FROM EMPLOYEE);
++----------------------+
+| SECOND_HIGEST_SALARY |
++----------------------+
+|             26000.00 |
++----------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT MIN(salary) AS SECOND_LOWEST_SALARY FROM EMPLOYEE  WHERE salary <(SELECT MIN(salary )FROM EMPLOYEE);
++----------------------+
+| SECOND_LOWEST_SALARY |
++----------------------+
+|                 NULL |
++----------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT MIN(salary) AS SECOND_LOWEST_SALARY FROM EMPLOYEE  WHERE salary >(SELECT MIN(salary )FROM EMPLOYEE);
++----------------------+
+| SECOND_LOWEST_SALARY |
++----------------------+
+|             21000.00 |
++----------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT AVG(SALARY) AS AVEREGAE_SALARY_DEV FROM EMPLOYEE WHERE PROFILE='DEV';
++---------------------+
+| AVEREGAE_SALARY_DEV |
++---------------------+
+|        37666.666667 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT NAME,SALARY FROM EMPLOYEE WHERE EXPERIENCE =(SELECT MIN(EXPERENICE) FROM EMPLOYEE);
+ERROR 1054 (42S22): Unknown column 'EXPERENICE' in 'field list'
+mysql> SELECT NAME,SALARY FROM EMPLOYEE WHERE EXPERIENCE =(SELECT MIN(EXPERIENCE) FROM EMPLOYEE);
++------+----------+
+| NAME | SALARY   |
++------+----------+
+| raj  | 51000.00 |
++------+----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT NAME FROM EMPLOYEE WHERE AGE=(SELECT MIN(AGE)FROM EMPLOYEE) AND SALARY = (SELECT MAX(SALARY) FROM EMPLOYEE);
++------+
+| NAME |
++------+
+| raj  |
++------+
+1 row in set (0.00 sec)
+
+mysql> TRUNCATE TABLE EMPLOYEE;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> SELECT * FROM EMPOLYEE;
+ERROR 1146 (42S02): Table 'javabatch1320.empolyee' doesn't exist
+mysql> SELECT * FROM EMPLOYEE;
+Empty set (0.00 sec)
+
+mysql>
