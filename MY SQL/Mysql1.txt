@@ -1,0 +1,148 @@
+mysql> select * from orders;
++----------+-------------------+--------+---------------+-------------+----------+----------+------------+--------------+-----------+
+| order_id | customer_name     | city   | product_name  | category    | price    | quantity | order_date | payment_mode | status    |
++----------+-------------------+--------+---------------+-------------+----------+----------+------------+--------------+-----------+
+|        1 | Onkar Jadhav      | Pune   | iPhone 15     | Electronics | 75000.00 |        1 | 2026-05-01 | UPI          | Delivered |
+|        2 | Ishan khandekar   | Mumbai | T-Shirt       | Clothing    |  1200.00 |        3 | 2026-05-03 | Card         | Shipped   |
+|        3 | Pranav Naiknaware | Pune   | Samsung Phone | Electronics | 25000.00 |        2 | 2026-05-05 | UPI          | Delivered |
+|        4 | Rahul Singh       | Delhi  | Laptop        | Electronics | 65000.00 |        1 | 2026-05-07 | Cash         | Pending   |
+|        5 | Arjun Patel       | Pune   | Jeans         | Clothing    |  2200.00 |        2 | 2026-05-08 | UPI          | Delivered |
+|        6 | Ishan kishan      | Pune   | T-Shirt       | Clothing    |  1200.00 |        3 | 2026-05-03 | Card         | Shipped   |
++----------+-------------------+--------+---------------+-------------+----------+----------+------------+--------------+-----------+
+6 rows in set (0.00 sec)
+
+mysql> select * from orders AS customer_city  where city ='pune';
++----------+-------------------+------+---------------+-------------+----------+----------+------------+--------------+-----------+
+| order_id | customer_name     | city | product_name  | category    | price    | quantity | order_date | payment_mode | status    |
++----------+-------------------+------+---------------+-------------+----------+----------+------------+--------------+-----------+
+|        1 | Onkar Jadhav      | Pune | iPhone 15     | Electronics | 75000.00 |        1 | 2026-05-01 | UPI          | Delivered |
+|        3 | Pranav Naiknaware | Pune | Samsung Phone | Electronics | 25000.00 |        2 | 2026-05-05 | UPI          | Delivered |
+|        5 | Arjun Patel       | Pune | Jeans         | Clothing    |  2200.00 |        2 | 2026-05-08 | UPI          | Delivered |
++----------+-------------------+------+---------------+-------------+----------+----------+------------+--------------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> select * from orders where price > 5000;
++----------+-------------------+-------+---------------+-------------+----------+----------+------------+--------------+-----------+
+| order_id | customer_name     | city  | product_name  | category    | price    | quantity | order_date | payment_mode | status    |
++----------+-------------------+-------+---------------+-------------+----------+----------+------------+--------------+-----------+
+|        1 | Onkar Jadhav      | Pune  | iPhone 15     | Electronics | 75000.00 |        1 | 2026-05-01 | UPI          | Delivered |
+|        3 | Pranav Naiknaware | Pune  | Samsung Phone | Electronics | 25000.00 |        2 | 2026-05-05 | UPI          | Delivered |
+|        4 | Rahul Singh       | Delhi | Laptop        | Electronics | 65000.00 |        1 | 2026-05-07 | Cash         | Pending   |
++----------+-------------------+-------+---------------+-------------+----------+----------+------------+--------------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> select * from orders where payment_mode =' upi';
+Empty set (0.00 sec)
+
+mysql> select * from orders where payment_mode ='upi';
++----------+-------------------+------+---------------+-------------+----------+----------+------------+--------------+-----------+
+| order_id | customer_name     | city | product_name  | category    | price    | quantity | order_date | payment_mode | status    |
++----------+-------------------+------+---------------+-------------+----------+----------+------------+--------------+-----------+
+|        1 | Onkar Jadhav      | Pune | iPhone 15     | Electronics | 75000.00 |        1 | 2026-05-01 | UPI          | Delivered |
+|        3 | Pranav Naiknaware | Pune | Samsung Phone | Electronics | 25000.00 |        2 | 2026-05-05 | UPI          | Delivered |
+|        5 | Arjun Patel       | Pune | Jeans         | Clothing    |  2200.00 |        2 | 2026-05-08 | UPI          | Delivered |
++----------+-------------------+------+---------------+-------------+----------+----------+------------+--------------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> select * from orders where status ='deliverd';
+Empty set (0.00 sec)
+
+mysql> select * from orders where status ='Delivered';
++----------+-------------------+------+---------------+-------------+----------+----------+------------+--------------+-----------+
+| order_id | customer_name     | city | product_name  | category    | price    | quantity | order_date | payment_mode | status    |
++----------+-------------------+------+---------------+-------------+----------+----------+------------+--------------+-----------+
+|        1 | Onkar Jadhav      | Pune | iPhone 15     | Electronics | 75000.00 |        1 | 2026-05-01 | UPI          | Delivered |
+|        3 | Pranav Naiknaware | Pune | Samsung Phone | Electronics | 25000.00 |        2 | 2026-05-05 | UPI          | Delivered |
+|        5 | Arjun Patel       | Pune | Jeans         | Clothing    |  2200.00 |        2 | 2026-05-08 | UPI          | Delivered |
++----------+-------------------+------+---------------+-------------+----------+----------+------------+--------------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> select * from orders where quantity between 2 and 5;
++----------+-------------------+--------+---------------+-------------+----------+----------+------------+--------------+-----------+
+| order_id | customer_name     | city   | product_name  | category    | price    | quantity | order_date | payment_mode | status    |
++----------+-------------------+--------+---------------+-------------+----------+----------+------------+--------------+-----------+
+|        2 | Ishan khandekar   | Mumbai | T-Shirt       | Clothing    |  1200.00 |        3 | 2026-05-03 | Card         | Shipped   |
+|        3 | Pranav Naiknaware | Pune   | Samsung Phone | Electronics | 25000.00 |        2 | 2026-05-05 | UPI          | Delivered |
+|        5 | Arjun Patel       | Pune   | Jeans         | Clothing    |  2200.00 |        2 | 2026-05-08 | UPI          | Delivered |
+|        6 | Ishan kishan      | Pune   | T-Shirt       | Clothing    |  1200.00 |        3 | 2026-05-03 | Card         | Shipped   |
++----------+-------------------+--------+---------------+-------------+----------+----------+------------+--------------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> select * from orders where category in('Electronics' , 'clothing');
++----------+-------------------+--------+---------------+-------------+----------+----------+------------+--------------+-----------+
+| order_id | customer_name     | city   | product_name  | category    | price    | quantity | order_date | payment_mode | status    |
++----------+-------------------+--------+---------------+-------------+----------+----------+------------+--------------+-----------+
+|        1 | Onkar Jadhav      | Pune   | iPhone 15     | Electronics | 75000.00 |        1 | 2026-05-01 | UPI          | Delivered |
+|        2 | Ishan khandekar   | Mumbai | T-Shirt       | Clothing    |  1200.00 |        3 | 2026-05-03 | Card         | Shipped   |
+|        3 | Pranav Naiknaware | Pune   | Samsung Phone | Electronics | 25000.00 |        2 | 2026-05-05 | UPI          | Delivered |
+|        4 | Rahul Singh       | Delhi  | Laptop        | Electronics | 65000.00 |        1 | 2026-05-07 | Cash         | Pending   |
+|        5 | Arjun Patel       | Pune   | Jeans         | Clothing    |  2200.00 |        2 | 2026-05-08 | UPI          | Delivered |
+|        6 | Ishan kishan      | Pune   | T-Shirt       | Clothing    |  1200.00 |        3 | 2026-05-03 | Card         | Shipped   |
++----------+-------------------+--------+---------------+-------------+----------+----------+------------+--------------+-----------+
+6 rows in set (0.00 sec)
+
+mysql> select * from orders where customer_name like 'A%';
++----------+---------------+------+--------------+----------+---------+----------+------------+--------------+-----------+
+| order_id | customer_name | city | product_name | category | price   | quantity | order_date | payment_mode | status    |
++----------+---------------+------+--------------+----------+---------+----------+------------+--------------+-----------+
+|        5 | Arjun Patel   | Pune | Jeans        | Clothing | 2200.00 |        2 | 2026-05-08 | UPI          | Delivered |
++----------+---------------+------+--------------+----------+---------+----------+------------+--------------+-----------+
+1 row in set (0.00 sec)
+
+mysql> select * from orders where product_name ='samsung phone';
++----------+-------------------+------+---------------+-------------+----------+----------+------------+--------------+-----------+
+| order_id | customer_name     | city | product_name  | category    | price    | quantity | order_date | payment_mode | status    |
++----------+-------------------+------+---------------+-------------+----------+----------+------------+--------------+-----------+
+|        3 | Pranav Naiknaware | Pune | Samsung Phone | Electronics | 25000.00 |        2 | 2026-05-05 | UPI          | Delivered |
++----------+-------------------+------+---------------+-------------+----------+----------+------------+--------------+-----------+
+1 row in set (0.00 sec)
+
+mysql> select * from orders ORDER BY Price desc;
++----------+-------------------+--------+---------------+-------------+----------+----------+------------+--------------+-----------+
+| order_id | customer_name     | city   | product_name  | category    | price    | quantity | order_date | payment_mode | status    |
++----------+-------------------+--------+---------------+-------------+----------+----------+------------+--------------+-----------+
+|        1 | Onkar Jadhav      | Pune   | iPhone 15     | Electronics | 75000.00 |        1 | 2026-05-01 | UPI          | Delivered |
+|        4 | Rahul Singh       | Delhi  | Laptop        | Electronics | 65000.00 |        1 | 2026-05-07 | Cash         | Pending   |
+|        3 | Pranav Naiknaware | Pune   | Samsung Phone | Electronics | 25000.00 |        2 | 2026-05-05 | UPI          | Delivered |
+|        5 | Arjun Patel       | Pune   | Jeans         | Clothing    |  2200.00 |        2 | 2026-05-08 | UPI          | Delivered |
+|        2 | Ishan khandekar   | Mumbai | T-Shirt       | Clothing    |  1200.00 |        3 | 2026-05-03 | Card         | Shipped   |
+|        6 | Ishan kishan      | Pune   | T-Shirt       | Clothing    |  1200.00 |        3 | 2026-05-03 | Card         | Shipped   |
++----------+-------------------+--------+---------------+-------------+----------+----------+------------+--------------+-----------+
+6 rows in set (0.00 sec)
+
+mysql> select * from orders ORDER BY order_date desc;
++----------+-------------------+--------+---------------+-------------+----------+----------+------------+--------------+-----------+
+| order_id | customer_name     | city   | product_name  | category    | price    | quantity | order_date | payment_mode | status    |
++----------+-------------------+--------+---------------+-------------+----------+----------+------------+--------------+-----------+
+|        5 | Arjun Patel       | Pune   | Jeans         | Clothing    |  2200.00 |        2 | 2026-05-08 | UPI          | Delivered |
+|        4 | Rahul Singh       | Delhi  | Laptop        | Electronics | 65000.00 |        1 | 2026-05-07 | Cash         | Pending   |
+|        3 | Pranav Naiknaware | Pune   | Samsung Phone | Electronics | 25000.00 |        2 | 2026-05-05 | UPI          | Delivered |
+|        2 | Ishan khandekar   | Mumbai | T-Shirt       | Clothing    |  1200.00 |        3 | 2026-05-03 | Card         | Shipped   |
+|        6 | Ishan kishan      | Pune   | T-Shirt       | Clothing    |  1200.00 |        3 | 2026-05-03 | Card         | Shipped   |
+|        1 | Onkar Jadhav      | Pune   | iPhone 15     | Electronics | 75000.00 |        1 | 2026-05-01 | UPI          | Delivered |
++----------+-------------------+--------+---------------+-------------+----------+----------+------------+--------------+-----------+
+6 rows in set (0.00 sec)
+
+mysql> select sum(price * quantity) AS totalRevenue from orders;
++--------------+
+| totalRevenue |
++--------------+
+|    201600.00 |
++--------------+
+1 row in set (0.01 sec)
+
+mysql> SELECT avg(price) AS averagePrice  from orders;
++--------------+
+| averagePrice |
++--------------+
+| 28266.666667 |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> select  count(*) AS totalOrders from orders;
++-------------+
+| totalOrders |
++-------------+
+|           6 |
++-------------+
+1 row in set (0.01 sec)
